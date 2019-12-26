@@ -1,0 +1,73 @@
+<zk>
+	<style>
+			.user{
+						margin-left:45px;
+						margin-top:35px;
+				 }
+			.pass{
+						margin-left:45px;
+						margin-top:35px;
+				 }
+			.subdiv{
+						float:right;
+						margin-top:150px;
+						margin-right:40px;
+			       }
+			button{
+						margin-left:100px;
+						margin-top:14px;
+				  }
+			.naga{
+						margin-top:20px;
+				 }
+			.z-textbox{
+						border:0;
+						width: 100%;
+						font-size: 16px;
+						color: black;
+						    font-family: fantasy;
+					  }
+			 a:link,a:visited, a.external:link,  a.external:visited{color: #CC0000;margin-left:80px;}
+			.z-loading{background:none;margin-top:200px;margin-left:400px;}
+			.z-loading-indicator, .z-apply-loading-indicator{background:none;}
+			.z-loading-icon {background-image: url('1.gif');background-size:40px 40px;}
+			
+	</style>
+	 <style src="style.css"/>
+  	<window contentStyle="background-image:url('login page.jpg');background-repeat: no-repeat;-webkit-background-size: cover;
+  -moz-background-size: cover; -o-background-size: cover; background-size: cover;"  width="100%" height="100%">
+		<div class="subdiv" style="width:300px;height:300px; background-color:black; background: rgba(255, 255, 255, 0.25);    box-shadow: -4.9px -3px 33px #014452;">
+			<vlayout style="text-align:center">
+				<vbox sclass="user">
+					<div hflex="1" sclass="highlight">
+						 <hlayout>
+						
+			                <span sclass="z-icon-user"/>
+			                <textbox placeholder="USERNAME"/>
+			              </hlayout>
+            			</div>
+				</vbox>
+				<vbox sclass="user">
+					<div hflex="1" sclass="highlight">
+						 <hlayout>
+						 
+			                <span sclass="z-icon-key"/>
+			                <textbox placeholder="PASSWORD" type="password"/>
+			               </hlayout>
+            			</div>
+				</vbox>
+				<separator/>
+				<vbox>
+					<button label="LOGIN" onClick="" />
+				</vbox>
+				<separator/>
+				<vbox>
+					<div class="ForgetPassword">
+						<a href="mainpage.zul" class="new">Forget Password</a>
+					</div>
+				</vbox>
+				
+			</vlayout>
+		</div>
+	</window>
+</zk>

@@ -1,0 +1,87 @@
+
+<?page title="Home" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<style>
+		body { margin: 0;padding: 0px 0px;}
+		
+		.z-hlayout-inner{vertical-align: baseline}
+		.subnav{margin-top:50px;border:0px;}
+		.subnav:active{text-color:green;}
+		.pavan{margin-top:60px;margin-left:440px;}
+		.z-window{padding:0px;}
+		.header {	 overflow: hidden;	background-color:#ffffff; }
+		.header a {
+		  float: left;
+		  color: black;
+		  text-align: center;
+		  padding: 12px;
+		  text-decoration: none;
+		  font-size: 18px;
+		  line-height: 25px;
+		  border-radius: 4px;
+		      margin-top: 30px;
+   			 margin-left: 80px;
+		}
+		.header a.logo {
+		  font-size: 25px;
+		  font-weight: bold;
+		}
+		.header a:hover {
+		  background-color: #ffffff;
+		  color: black;
+		}
+		.header-right {
+		  float: right;
+		}
+		@media screen and (max-width: 500px) {
+		  .header a {
+		    float: none;
+		    display: block;
+		    text-align: left;
+		  }
+		  .header-right {
+		    float: none;
+		  }
+		}
+.z-icon-map-marker:before {
+    content: "\f041";
+    width: 10px;
+    margin-top: 14px;
+    font-size: 20px;
+    color: #f9145a;
+    margin-left: 3px;
+}
+
+.z-icon-calendar:before {
+    content: "\f073";
+      width: 10px;
+    margin-top: 14px;
+    font-size: 20px;
+    color: #f9145a;
+}
+.z-groupbox-notitle .z-groupbox-content {
+    border-top: 1px solid #d9d9d9;
+    padding: 19px;
+}
+</style>
+<style src="style.css"/>
+<div id="EHome" use ="com.pennanttech.Team2.Empr.EmprHome_Ctrl">	
+<hbox>
+<a href="" class="logo"><image src="webapp\img\LOGO.jpg" width="175px" height="58px" style=" margin-left: 30px;
+  margin-top: 30px; "></image></a>
+<div class="header">
+ 	<div class="header-right">
+  	<a href="search.zul">Home</a>
+    <a href="Profile.zul">Profile</a>
+    <a href="JobsApplied.zul">Applied</a>
+    <a href="Logout.zul">Logout</a>
+	</div>
+</div>
+</hbox>
+ 
+
+<vbox id="vb"/>
+
+</div>
+
+</zk>

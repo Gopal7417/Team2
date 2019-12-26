@@ -1,0 +1,19 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="new page title" border="normal">
+<listbox id="box" width="100%" >
+        <listhead >
+            <listheader label="Job_Title" sort="auto" />
+            <listheader label="Applicant_Name" sort="auto" />
+            <listheader label="Location" sort="auto" />
+            <listheader label="Applied On" sort="auto" />
+        </listhead>
+          <listitem>
+            <listcell label="Philip Hensher" />
+            <listcell label="The Northern Clemency" />
+            <listcell label="Knopf (October 30, 2011)" />
+            <listcell label="608 pages" />
+        </listitem>
+        </listbox>
+</window>
+</zk>

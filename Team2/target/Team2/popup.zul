@@ -1,0 +1,20 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+
+<window   width = "470px" border="normal"  >
+
+<hbox>
+<vbox>
+<image src="fresherlogo.png"  width="175px" style="margin-left:22px; margin-top: -4px;"/>
+<button label="I'm Experienced"   style= "background-color:#F91345; width:145px; margin-left: 21px;" href="ExperiencedRegistration.zul"/>
+</vbox>
+<vbox>
+<image src="experiencedlogo.png"  style="width:153px;
+    margin-top:-43px; margin-left:40px;"/>
+<button label="I'm Fresher"  style="background-color:#F91345; margin-top:-56px; margin-left:45px; margin-bottom:15px; width:145px;" 
+href="FresherRegistration.zul"/>
+</vbox>
+</hbox>
+</window>
+</zk>

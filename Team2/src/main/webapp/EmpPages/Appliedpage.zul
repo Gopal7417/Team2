@@ -1,0 +1,16 @@
+<zk>
+<style>
+.n{
+		margin-top:85px;
+}
+</style>
+<separator bar="true" width="1410px" sclass="n"/>
+<separator/>
+<div use="com.pennanttech.Team2.User.Appliedctrl">
+
+<vbox id="v"> 
+</vbox>
+
+
+</div>
+</zk>

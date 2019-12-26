@@ -1,0 +1,49 @@
+.horizontal, .vertical {
+    height: 100%;
+    background-color: #EAE7E7;
+}
+.z-navbar {
+    position: absolute;
+    background-color: #34445a;
+}
+.z-navbar-horizontal li {
+    min-width: 145px;
+}   
+.z-navbar-vertical {
+    width: 160px;
+    height: 300px;
+}   
+.z-navbar-vertical.z-navbar-collapsed {
+    width: inherit;
+}   
+.z-navbar-horizontal.z-navbar-collapsed {
+    width: 100%;
+}
+.content {
+   
+    height:100%;
+}
+.vertical .content {
+        padding-left: 0px;
+    padding-top: 64px;
+}
+.vertical .content.collapsed {
+    padding-left: 75px;
+}
+.horizontal .content {
+    padding-top: 50px;
+}
+.content .title {
+    margin: 0;
+}
+.content .subTitle {
+    margin: 0;
+}
+.z-navbar ul {width: 1435px; height: 64px;}
+.z-window{margin-left: -75px;margin-top: 8px;}
+.z-navbar-horizontal>ul .z-nav-content, .z-navbar-horizontal>ul .z-navitem-content, .z-navbar-horizontal>ul .z-navseparator {background: #34445a;}
+.z-nav-content, .z-navitem-content{color: #fff;border:none;}
+.z-navbar>ul ul .z-nav-content, .z-navbar>ul ul .z-navitem-content, .z-navbar>ul ul .z-navseparator {background: #34445a;}
+.z-navbar .z-navitem-selected .z-navitem-content {background: #34445a;}
+.z-navbar-horizontal .z-nav-content:before {    height: 0px;    background: #34445a;}
+.z-navbar .z-navitem-selected .z-navitem-content{margin-top: 0px;}

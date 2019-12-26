@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?page title="Task"?>
+<window id="taskListWnd" title="Task List" border="normal" width="500px" 
+  use="com.pennanttech.Team2.TaskListWnd">
+	<vbox>
+	Tasks:
+	<listbox id="taskslb" width="490px" rows="20">
+		<listhead>
+			<listheader label="Title" width="150px"/>
+			<listheader label="Description"/>
+		</listhead>
+	</listbox>
+	<hbox>
+		<button label="New..." onClick="taskListWnd.onNew()"/>
+		<button label="Update..." onClick="taskListWnd.onUpdate()"/>
+		<button label="Delete" onClick="taskListWnd.onDelete()"/>
+	</hbox>
+	</vbox>
+</window>
