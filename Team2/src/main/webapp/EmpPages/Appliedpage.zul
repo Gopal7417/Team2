@@ -1,14 +1,103 @@
+<?init class="com.pennanttech.Team2.Session.Verify_loginCredentials"?>
 <zk>
 <style>
 .n{
 		margin-top:85px;
 }
+.z-progressmeter {
+    height: 5px;
+    width:100px;
+  border: 1px solid #d9d9d9;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 0px;
+    background: #fff 0 0 repeat-x;
+    /* background-image: url(/Team2/zkau/web/1fb2afe5/zul/img/misc/prgmeter-anim.gif); */
+    /* text-align: left; */
+    /* overflow: hidden; */
+}
+
+.z-progressmeter-image {
+    font-size: 0;
+    display: inline-block;
+    height: 14px;
+    line-height: 0;
+    background-color: #21af2f;
+}
+
+.z-groupbox-content {
+
+border: none;
+}
+
+.z-groupbox-notitle .z-groupbox-content {
+   border-bottom: 1px solid #d9d9d9;
+    border-top: none;
+    padding: 16px;
+
+}
+.z-a:visited {
+	    color: #87898c;
+	}
+	.z-a:visited:hover {
+	    color: black;
+	}
+.header {	 overflow: hidden;	background-color:#ffffff; }
+		.header a {
+		  float: left;
+		  color: black;
+		  text-align: center;
+		  padding: 12px;
+		  text-decoration: none;
+		  font-size: 30px;
+		  line-height: 25px;
+		  border-radius: 4px;
+		      margin-top: 30px;
+   			 margin-left: 80px;
+		}
+		.header a.logo {
+		  font-size: 25px;
+		  font-weight: bold;
+		}
+		.header a:hover {
+		  background-color: #ffffff;
+		  color: black;
+		}
+		.header-right {
+		  float: right;
+		}
+	.z-icon-calendar-o:before {
+    content: "\f133";
+    margin-left: 81px;
+    color: #f91c45;
+}
+.z-icon-map-marker:before {
+    content: "\f041";
+    color: #f91c45;
+}
 </style>
-<separator bar="true" width="1410px" sclass="n"/>
-<separator/>
+<style src="style.css"/>
+<hbox>
+	 <a href="" class="logo"><image src="/images/Content/LOGO.jpg" width="175px" height="58px" style=" margin-left: 30px;
+       margin-top: 30px; "></image></a>
+	<div class="header">
+ 		<div class="header-right">
+		    <a href="UserHome.zul">Home</a>
+		    <a href="Userprof.zul">Profile</a>
+		     <a href="Appliedpage.zul">Applied</a>
+		</div>
+	</div>
+	<vbox style="float:right;">
+			<div id="click"  use="com.pennanttech.Team2.Login.UserLogin_Ctrl">
+			<button iconSclass="z-icon-sign-out" style="    color: #fff;    background-color: #f91c45;    margin-left: 470px;    margin-top: 33px;" label="logout"  onClick="click.logout()"/>
+		</div>
+	</vbox>
+</hbox>
 <div use="com.pennanttech.Team2.User.Appliedctrl">
 
-<vbox id="v"> 
+<vbox id="v" style="margin-top:40px;"> 
 </vbox>
 
 

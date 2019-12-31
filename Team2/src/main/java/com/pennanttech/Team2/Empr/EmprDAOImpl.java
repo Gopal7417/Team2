@@ -54,7 +54,7 @@ public class EmprDAOImpl implements EmprDAO
 				String c3=c.getEmail_Id();
 				String c4=c.getPassword();
 				long c5=c.getPhone_number();
-				String c6=c.getCurrent_Designation();
+				String c6=c.getDesg();
 				String sql="insert into Company_tbl(Company_Id,Company_Name,Recruiter_Name,Email_Id,Password,Phone_Number,Current_Designation) values(NEXT VALUE FOR Company_Id,?,?,?,?,?,?)";
 				Object[] params = new Object[] {c1,c2,c3,c4,c5,c6};
 				int types[] = new int[] {Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
@@ -90,6 +90,34 @@ public class EmprDAOImpl implements EmprDAO
 				return 0;
 			}
 		
+		protected  class CompanyProfMapper implements RowMapper {
+			public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Empr_Model em=new Empr_Model();
+				em.setCompany_Name(rs.getString(1));
+				em.setPhone_number(rs.getLong(2));
+				em.setEmail_Id(rs.getString(3));
+				em.setRecruiter_Name(rs.getString(4));
+				em.setDesg(rs.getString("Desg"));
+			
+				
+				return em;
+
+			}}
+		public List  companyProfile(int Company_Id) {
+		    System.out.println(Company_Id);
+		    String sql="select Company_Name,Phone_Number,Email_Id,Recruiter_Name,Desg from Company_tbl where Company_Id="+Company_Id;
+		    return jdbcTemplate.query(sql,new CompanyProfMapper());
+		   
+		}
+
+		public void companyupdate(Empr_Model em) {
+			int x=em.getCompany_Id();
+			String sql="Update Company_tbl SET Company_Name=?,Phone_Number=?,Email_Id=?,Recruiter_Name=?,Desg=? WHERE Company_Id="+x;
+			  Object[] params = new Object[]{em.getCompany_Name(),em.getPhone_number(),em.getEmail_Id(),em.getRecruiter_Name(),em.getDesg()};
+			  int types[] = new int[]{Types.VARCHAR, Types.BIGINT, Types.VARCHAR, Types.VARCHAR,Types.VARCHAR}; 
+			  jdbcTemplate.update(sql, params,types);
+		}
+
 		protected class ApplicantsMap implements RowMapper {
 			public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 				AppListModel ap = new AppListModel();
@@ -120,15 +148,19 @@ public class EmprDAOImpl implements EmprDAO
 				m1.setNo_of_Years(rs.getInt(5));
 				m1.setResume(rs.getBytes(6));
 				m1.setMobile_Number(rs.getLong(7));
-				m1.setEmail_Id(rs.getString(8));			    
+				m1.setEmail_Id(rs.getString(8));
+				m1.setGender(rs.getString(9));
+				
 				return m1;
 			}}
 
 	public List Profile(int profileid) {
 
-	String sql = "select Name,Date_Of_Birth,Highest_Qualification,Skills,No_of_Years,Resume,Mobile_Number,Email_Id from emp where emp_id = "+profileid;			
+	String sql = "select Name,Date_Of_Birth,Highest_Qualification,Skills,No_of_Years,Resume,Mobile_Number,Email_Id,Gender from emp where emp_id = "+profileid;			
 	return jdbcTemplate.query(sql, new JobProfileMapper());
 		}
+	
+	
 		public String Approve(int empid) {
 			
 			String sql = "update Applied_Jobs_tbl set Status = 'Approved' where emp_id = ?";
@@ -148,6 +180,30 @@ public class EmprDAOImpl implements EmprDAO
 			
 			
 		return 1;	
+		}
+		public int valid(Job_Tbl j) {
+			
+			
+			System.out.println("1");
+			String j71=j.getJob_Role();
+			String j72=j.getJob_Description();
+			int j73=j.getSalary();
+			int j74=j.getExperience();	
+			int j75=j.getNo_of_Openings();				
+			String j76=j.getMinimum_Qualification();		
+			System.out.println("12");
+			Date j77=j.getLast_Date();
+		
+			 String j78=j.getJob_Location(); 
+		
+			 String j80=j.getSkills();
+			 String sql=" insert into Job_tbl(Company_Id,Job_Id,Job_Role,Job_Description,Salary,Experience,No_of_Openings,Minimum_Qualification,last_Date,Job_Location,Skills) values(?,NEXT VALUE FOR Job_Id,?,?,?,?,?,?,?,?,?)"; 
+			 Object[] params = new Object[] {j.getCompany_Id(),j71,j72,j73,j74,j75,j76,j77,j78,j80 };
+			  int types[] = new int[] {Types.INTEGER,Types.VARCHAR, Types.VARCHAR, Types.INTEGER,
+			  Types.INTEGER, Types.INTEGER, Types.VARCHAR, Types.VARCHAR,
+			  Types.VARCHAR, Types.VARCHAR }; 
+			  jdbcTemplate.update(sql, params, types);
+			  return 0;
 		}
 
 		

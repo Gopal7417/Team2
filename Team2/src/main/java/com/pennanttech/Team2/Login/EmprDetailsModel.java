@@ -4,7 +4,14 @@ public class EmprDetailsModel {
 private String Email_Id;
 private String Password;
 private int Company_Id;
+private int Emp_Id;
 
+public int getEmp_Id() {
+	return Emp_Id;
+}
+public void setEmp_Id(int emp_Id) {
+	Emp_Id = emp_Id;
+}
 public int getCompany_Id() {
 	return Company_Id;
 }

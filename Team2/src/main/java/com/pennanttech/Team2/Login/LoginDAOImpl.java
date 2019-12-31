@@ -166,6 +166,15 @@ public class LoginDAOImpl implements LoginDAO {
 			return pass;
 		
 		}
+
+		public int forget(String b1) {
+			String sql="select Email_Id from Company_tbl where Email_Id = ?";
+			String s= jdbcTemplate.queryForObject(sql, new Object[] {b1},String.class);
+			if(b1.equals(s))
+				{return 1;}
+			else 
+				{return 0;}
+		}
 		
 		
 		

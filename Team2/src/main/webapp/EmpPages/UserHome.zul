@@ -9,7 +9,7 @@
 		.subnav:active{text-color:green;}
 		.pavan{margin-top:60px;margin-left:440px;}
 		.z-window{padding:0px;}
-		.z-label{    font-size: 25px;color:white;}
+		
 		.z-label.search{margin-left:7px;}
 		.z-button:focus {  border-color: #34445a;  transition: all 0.5s ease;  }
 		.tie{ margin-left: 90px; -webkit-filter: drop-shadow(0px 0px 5px black);}
@@ -76,6 +76,23 @@
      border-bottom: none;
       border-radius: 0px;
  } 
+ .z-icon-map-marker{
+ color: #f91c45;
+ 
+ }
+.z-icon-money:before {
+    content: "\f0d6";
+    color: #f91c45;
+    margin-left: 115px;
+}
+.z-icon-briefcase:before {
+color: #f91c45;}
+
+.z-groupbox-notitle .z-groupbox-content:hover {
+  
+    box-shadow: 0px 0px 3px #34445a;
+    
+}
 
 	</style>
 	<style src="style.css"/>
@@ -91,7 +108,9 @@
 		</div>
 	</div>
 	<vbox style="float:right;">
-		<button iconSclass="z-icon-sign-out" style="    color: #fff;    background-color: #f91c45;    margin-left: 470px;    margin-top: 33px;" label="logout"/>
+		<div id="click"  use="com.pennanttech.Team2.Login.UserLogin_Ctrl">
+			<button iconSclass="z-icon-sign-out" style="    color: #fff;    background-color: #f91c45;    margin-left: 470px;    margin-top: 33px;" label="logout"  onClick="click.logout()"/>
+		</div>
 	</vbox>
 </hbox>
 <div id = "Home" use="com.pennanttech.Team2.User.UserHome_Ctrl">
@@ -100,7 +119,7 @@
 		<hbox>
 			<image src="/images/Content/tie.png" width="220px" height="420px" class="tie"></image>
 	   		<vbox style="margin-left:15px; margin-top:120px;">
-	   			<label class="search" value="Job Role" width="150px" onClick="Home.search()"/>
+	   			<label class="search" value="Job Role" width="150px" onClick="Home.search()" style="color:white"/>
 	   			<vbox sclass="user">
 					<div hflex="1" sclass="highlight">
 						 <hlayout>						 
@@ -112,7 +131,7 @@
      		</vbox>
      		<separator></separator>
     	 	<vbox style="margin-left:47px; margin-top:120px;">
-       		 	<label class="search" value="Location" width="150px" />
+       		 	<label class="search" value="Location" width="150px" style="color:white" />
        		 	<vbox sclass="user">
 					<div hflex="1" sclass="highlight">
 						 <hlayout>						 
@@ -128,12 +147,71 @@
 					<button class="button" label="Search" onClick="Home.search()"/>
 							
 				</hlayout>
-				<hbox id="hbox"/>
+		
 	
 		</hbox>		
 	</div>
-<vbox sclass="vb" id ="vb">
+	<hbox>
+
+<vbox sclass="vb" id ="vb" style="margin-top:60px;">
 	
 </vbox>
+<div visible="false" id="div" style="margin-left: 73px;
+    margin-top: 30px;
+    width: 848px;
+    height: 419px;
+    padding: 36px;
+      border-width: 1px;
+    border-style: groove;
+    border-color: #d6d5d5;"  >	
+
+<vbox id ="vbox" >
+
+<label id="role" style="font-size: 26px;" />
+<label id="Cmpy" style="font-weight: bold; color: #34445a;"  />
+<hbox>
+<span Sclass="z-icon-map-marker"/> <label id="loc" />
+</hbox>
+<hbox>
+ <span Sclass="z-icon-briefcase"/> <label Value="Experience required in years:" style="font-weight: bold; color: #34445a;"  /> 
+<label id="Exp" />
+</hbox>
+<label Value="Job Description:" style="font-weight: bold; color: #34445a;line-height: 28px;" />
+<label id="desc" style="line-height: 28px;"/>
+<hbox>
+<label Value="Minimum Qualification:" style="font-weight: bold; color: #34445a;line-height: 28px;"/>
+<label id="qual" style="line-height: 28px;" />
+</hbox>
+<hbox>
+<label Value="Salary(in LPA):" style="font-weight: bold; color: #34445a;line-height: 28px;" />
+<label id="salary" style="line-height: 28px;"/>
+</hbox>
+<hbox>
+<label Value="Skills required:" style="font-weight: bold; color: #34445a;line-height: 28px;" />
+
+<label id="skills" style="line-height: 28px;" />
+</hbox>
+<hbox>
+<label Value="Lastdate to Apply:" style="font-weight: bold; color: #34445a;line-height: 28px;"  />
+<label id="ldate"  style="line-height: 28px;"/>
+</hbox>
+<button  id="Apply" label="Apply" visible="false" onClick="Home.ApplyJob(div.getTabindex())" style="width: 92px;background-color:#34445a;"/>
+<label  id="Applied" value="Applied" visible="false" style="border-width: 1px;
+    border-style: outset;
+    border-color: rgb(52, 68, 90);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 16px;
+    background-color: rgb(255, 255, 255);
+    color: #34445a;
+    line-height: 30px;
+"/>
+
+
+ </vbox>
+
+</div>
+</hbox>
 </div>
 </zk>

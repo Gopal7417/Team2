@@ -27,7 +27,7 @@
     </style>
     
     <image src="/images/Content/LOGO.jpg" width="175px" height="58px" style="margin-left:30px; margin-top:30px;"></image>
-    <div id="click" width="100%" height="100%"  use="com.pennanttech.Team2.Empr.EmprPostNewJob_Ctrl" >
+    <div id="click" width="100%" height="100%"  use="com.pennanttech.Team2.Empr.Job_TblCtrl" >
     <tabbox id="tb" height="100%">
 	    <tabs id="tabs">
 	        
@@ -42,13 +42,13 @@
 		       <borderlayout height="100%" width="90">
 			     <north   border="0" >
 			        <div  align="center" class="subdiv" 
-			        		style="width:500px;height:350px; background-color:black; background: rgba(255, 255, 255, 0.25);  box-shadow: -4px -2px 10px #014452;  margin: 0 auto;margin-top: 133px;">  <separator/><separator/><separator/><separator/>
+			        		style="width:500px;height:360px; background-color:black; background: rgba(255, 255, 255, 0.25);  box-shadow: -4px -2px 10px #014452;  margin: 0 auto;margin-top: 133px;">  <separator/><separator/><separator/><separator/>
 			             <hbox  align="center">
 			                	 <div  width="100%" height="100%"  align="Right">
 			                         <label value="Job Role" width="150px" /><label value="*" sclass="p" /> <space width="50px"></space>    
 						                 <textbox id="Job_Role"  width="250px" placeholder="Eg.Bank Office Job"/><separator/><separator/>
 									 <label value="Job Description" width="150px"/><label value="*" sclass="p" /> <space width="50px"/>
-						                 <textbox id="Job_Description" width="250px" placeholder="Eg.Good programming skills"/><separator/><separator/>
+						                 <textbox id="Job_Description"  rows="3" width="250px" placeholder="Eg.Good programming skills"/><separator/><separator/>
 									 <label value="Salary " width="150px"/><label value="*" sclass="p" /> <space width="50px"/>
 					                      <intbox id="Salary" width="250px" placeholder="in LPA"/>	<separator/><separator/>
 					     			 <label value="No Of Openings" width="150px"/><label value="*" sclass="p" /> <space width="50px"/>
@@ -56,7 +56,7 @@
 					     			 <label value="Experience"  width="150px" /><label value="*" sclass="p" /> <space width="50px"></space>
 		                              <intbox id="Experience" width="250px" placeholder="Eg.2Years"/><separator/><separator/>
 					                <hbox style="padding-left:100px;">
-					   						<button label="Next"  onClick="tb.selectedTab=B" width="135px"/>
+					   						<button label="Next" style="background-color: #34445a"  onClick="tb.selectedTab=B" width="135px"/>
 					                </hbox><separator/><separator/> <separator/><separator/>
 								</div>
 		                 </hbox>
@@ -87,7 +87,7 @@
 		                               <textbox id="Skills" width="250px" rows="3" placeholder="Eg. Java,c,c++" /><separator/><separator/> <separator/>
 							 	
 				     			<hbox style="padding-left:100px;">
-					   						<button label="Next" onClick="tb.selectedTab=C" width="135px"/>
+					   						<button label="Next" style="background-color: #34445a" onClick="tb.selectedTab=C" width="135px"/>
 					   						
 					                </hbox><separator/><separator/> <separator/>
 					 		</div>
@@ -100,7 +100,7 @@
 		        <borderlayout height="100%" width="90" >
 			  	 <north  border="0" >
 			      <div  align="center" class="subdiv" 
-			      	style="width:500px;height:280px; background-color:black; background: rgba(255, 255, 255, 0.25);    box-shadow: -4px -2px 10px #014452;    margin: 0 auto; margin-top: 133px;">
+			      	style="width:500px;height:250px; background-color:black; background: rgba(255, 255, 255, 0.25);    box-shadow: -4px -2px 10px #014452;    margin: 0 auto; margin-top: 133px;">
 			         <separator/><separator/><separator/>
 			            <hbox  align="center">
 			              	<div width="100%" height="100%"  align="Right"><separator/><separator/>
@@ -108,12 +108,12 @@
 		                       		 <textbox id="Venue" width="250px" placeholder="7th Floor,Hall No 3,PavanTowers" /> <separator/>
 		                       		<label value="Date"  width="150px" /><label value="*" sclass="p" /> <space width="50px"></space>
 		                              <datebox id="I_Date" format="yyyy-MM-dd-HH-mm" constraint="no past" width="250px"  placeholder="Eg.28th Dec 19"  readonly="true"/><separator/><separator/>
-								<label value="Time"  width="150px" /><label value="*" sclass="p" /> <space width="50px"></space>
-		                              <timebox id="I_Time" width="250px" placeholder="Eg.10:00 AM"/><separator/><separator/>
+								<!-- <label value="Time"  width="150px" /><label value="*" sclass="p" /> <space width="50px"></space>
+		                              <timebox id="I_Time" width="250px" placeholder="Eg.10:00 AM"/><separator/><separator/> -->
 				 				<label value="Rounds" width="150px" /><label value="*" sclass="p" /> <space width="50px"></space>  
 		                               <textbox id="Rounds"  width="250px" placeholder="Eg.Gd,Tr,Mr,Hr" /><separator/><separator/>															 	
 				     			<hbox style="padding-left:100px;">
-					   						<button label="Submit" onClick="click.verifyJob()" width="135px"/>					   						
+					   						<button label="Submit" style="background-color: #34445a" onClick="click.verifyJob()" width="135px"/>					   						
 					                </hbox><separator/><separator/> <separator/>
 					 		</div>
 		                 </hbox>

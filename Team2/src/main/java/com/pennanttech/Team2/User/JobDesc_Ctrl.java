@@ -19,7 +19,7 @@ import org.zkoss.zul.*;
 import com.pennanttech.Team2.Login.UserDetailsModel;
 import com.pennanttech.Team2.Session.AuthenticationService;
 import com.pennanttech.Team2.Session.AuthenticationServiceImpl;
-public class JobDesc_Ctrl extends Window {
+public class JobDesc_Ctrl extends Div {
 	private static Logger logger = Logger.getLogger(JobDesc_Ctrl.class);
 	
 	protected UserPagesDAO UDAO;
@@ -37,16 +37,12 @@ public class JobDesc_Ctrl extends Window {
 					(ServletContext)getDesktop().getWebApp().getNativeContext());	
 		//	System.out.println(id.getIndex());
 			UDAO = (UserPagesDAO)ctx.getBean("UserDAO");				
-			String job_id =Executions.getCurrent().getParameter("job_id");			
-			id = Integer.parseInt(job_id);
+			//String job_id =Executions.getCurrent().getParameter("job_id");			
+		//	id = Integer.parseInt(job_id);
 			logger.info(id);
 			ApplyCheck = UDAO.applyCheck(id,e.getId());
 			System.out.println(ApplyCheck+"CHECK");
 			Vbox vb = (Vbox) this .getFellow("vbox");
-				
-			
-			
-			
 			JobData =UDAO.Job_Data(id);
 			System.out.println("enter into desc");						
 			for (Iterator it = JobData.iterator(); it.hasNext();) {
@@ -55,6 +51,7 @@ public class JobDesc_Ctrl extends Window {
                 Label lb2 = (Label)this.getFellow("Exp");
                 Label lb3 = (Label)this.getFellow("Cmpy");
                 Label lb4 = (Label)this.getFellow("loc");
+                Label lb5 = (Label)this.getFellow("Nmae");
                 lb1.setValue(m.getJob_Description());
                 Integer sn = m.getExperince();
 				lb2.setValue(sn.toString());
@@ -84,7 +81,8 @@ public class JobDesc_Ctrl extends Window {
 	
 	
 	public void ApplyJob()
-	{logger.info("enter");	
+	{
+		logger.info("enter");	
 		e=as.getLoginCredential();
 		
 		UDAO.apply(id, e.getId());

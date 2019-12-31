@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.zkoss.zk.ui.Execution;
@@ -22,15 +23,14 @@ public class ApplicantList_Ctrl extends Window {
 	EmprDAO EDAO;
 	public List Applist;
 	public List Profile;
-	public int j;
+	public static int j;
+	private static Logger logger = Logger.getLogger(ApplicantList_Ctrl.class);
 
 	public void onCreate() {
 	String par = Executions.getCurrent().getParameter("test");
 	            System.out.println(par);
-	            
-	            
-	            
-		ApplicationContext ctx =
+	            j = Integer.parseInt(par);      
+ApplicationContext ctx =
 					  WebApplicationContextUtils.getRequiredWebApplicationContext(
 							  (ServletContext)getDesktop().getWebApp().getNativeContext());
 		  EDAO = (EmprDAO)ctx.getBean("Empr"); 			
@@ -42,11 +42,8 @@ public void render() {
 	EDAO = (EmprDAO) ctx.getBean("Empr");
 
 	
-	String par = Executions.getCurrent().getParameter("test");
 	
-	int inum = Integer.parseInt(par);
-	
-	Applist = EDAO.ApplicantsList(inum);
+	Applist = EDAO.ApplicantsList(j);
 	
 	final Div win2 = (Div) (this).getFellow("win2");
 	Listbox lb = (Listbox) this.getFellow("AppList");
@@ -60,7 +57,7 @@ public void render() {
 		
 		lb.addEventListener("onClick", new EventListener() {
 			public void onEvent(Event e) throws Exception {
-			//	win2.setVisible(true);
+				win2.setVisible(true);
 				call();
 			}
 		});
@@ -111,6 +108,7 @@ public void render() {
 	  Label lb3 =(Label) this.getFellow("lb3");
 	  Label lb4 =(Label) this.getFellow("lb4");
 	  Label lb5 =(Label) this.getFellow("lb5");
+	  Label lb6 =(Label) this.getFellow("lb6");
 	  Label lb7 =(Label) this.getFellow("lb7");
 	  Label lb8 =(Label) this.getFellow("lb8");
 	  lb1.setValue(m.getName());
@@ -118,9 +116,14 @@ public void render() {
 	  lb2.setValue(DOB.toLocaleString());
 	  lb3.setValue(m.getHighest_Qualification());
 	  lb4.setValue(m.getSkills());
+	  if(m.getNo_of_Years() == 0 ) {
 	  Integer noY = m.getNo_of_Years();
-	  lb5.setValue(noY.toString());
-	  Integer number = m.getNo_of_Years();
+	  lb5.setValue("F");
+	  
+	  } else lb5.setValue("Experienced");
+		  
+	  lb6.setValue(m.getGender());
+	  Long number = m.getMobile_Number();
 	  lb7.setValue(number.toString());
 	  lb8.setValue(m.getEmail_Id());	  
 	   }
@@ -171,23 +174,19 @@ public void render() {
 		
 		hb.appendChild(b1);
 		hb.appendChild(b2);*/
-		
-	  
-	  
-
-	
+			
 public void StatusApprove() {
+	logger.info("enter1");
 
 		Listbox lb = (Listbox) this.getFellow("AppList");
 		 String mail =EDAO.Approve(lb.getSelectedItem().getTabindex());
 		 System.out.println(mail);
 		 Button b1 = (Button) this.getFellow("approve");
 		 b1.setVisible(false);
+		 System.out.println(mail);
 		 Button b2 = (Button) this.getFellow("reject");
 		 b2.setVisible(false);
-		 
 		 render();
-		 ;
 	 /*Div win = (Div) (this).getFellow("win2");
 			win.setVisible(false);*/
 		Mail m = new Mail();			

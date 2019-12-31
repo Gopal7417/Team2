@@ -8,9 +8,15 @@ public class Empr_Model {
 	 private String Email_Id;
 	 private String Password;
 	 private long   Phone_number;
-	 private String Current_Designation;
+	 private String Desg;
 	 
-	 public String getRecruiter_Name() {
+	 public String getDesg() {
+		return Desg;
+	}
+	public void setDesg(String desg) {
+		Desg = desg;
+	}
+	public String getRecruiter_Name() {
 		return Recruiter_Name;
 	}
 	public void setRecruiter_Name(String recruiter_Name) {
@@ -22,19 +28,12 @@ public class Empr_Model {
 	public void setEmail_Id(String email_Id) {
 		Email_Id = email_Id;
 	}
-	
-
-	
-	
-	
 	public String getPassword() {
 		return Password;
 	}
 	public void setPassword(String password) {
 		Password = password;
 	}
-	
-	
 	public int getCompany_Id() {
 		return Company_Id;
 	}
@@ -51,12 +50,7 @@ public class Empr_Model {
 		Phone_number = phone_number;
 	}
 	
-	public String getCurrent_Designation() {
-		return Current_Designation;
-	}
-	public void setCurrent_Designation(String current_Designation) {
-		Current_Designation = current_Designation;
-	}
+	
 	public void setCompany_Name(String company_Name) {
 		Company_Name = company_Name;
 	}

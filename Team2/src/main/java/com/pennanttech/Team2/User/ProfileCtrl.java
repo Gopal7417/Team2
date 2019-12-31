@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Window;
 
@@ -30,7 +31,8 @@ public class ProfileCtrl extends Window
 				ApplicationContext ctx = 
 				WebApplicationContextUtils.getRequiredWebApplicationContext((ServletContext)getDesktop().getWebApp().getNativeContext());
 				db1=(UserPagesDAO)ctx.getBean("UserDAO");
-				Profile = e.getLs();
+				int x= e.getEmp_Id();
+				Profile = db1.Profile(x);
 				for (Iterator it = Profile.iterator(); it.hasNext();) 
 					{
 						UserdetailsModel m = (UserdetailsModel) it.next();						
@@ -67,14 +69,33 @@ public class ProfileCtrl extends Window
 						Label lb8=(Label)this.getFellow("email");
 							lb8.setValue(m.getEmail_Id());
 			
-						Label lb9=(Label)this.getFellow("number");
-				  
-						Integer in = (int) m.getMobile_Number();
-				 
-						lb9.setValue(in.toString());
+							Label lb9=(Label)this.getFellow("number");
+							  
+							 long in = (long) m.getMobile_Number();
+							 
+					 
+							 lb9.setValue(String.valueOf(in));
 				 
 					}
+		
 			}
+		
+		
+		public void popup() {
+
+			 Window window = (Window)Executions.createComponents("EditProfilepopup.zul", null, null);
+			 window.setClosable(true);
+			 window.setTitle("Title");
+			 window.setBorder(true);
+			 window.doModal();	 
+			 
+			 
+			 
+			 
+			 
+		}
+		
+		
 	}
 		
 	

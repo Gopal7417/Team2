@@ -54,13 +54,8 @@ public class UserLogin_Ctrl extends Window {
 					logger.info("if");
 					l.setEmail_Id(b1);
 					l.setPassword(c1);
-					l.setId(db1.empid(b1));
-					logger.info(b1);
-					List ls= db2.Profile(b1);
-					l.setLs(ls);
-					logger.info("5");
-					/*List al = db2.Applied(empid);
-					l.setAppiled(al);*/
+					int x=db1.empid(b1);
+				    l.setEmp_Id(x);
 					As.setLoginCredential(l);
 					showNotify("Login Sucessfull","info",login);
 					Executions.sendRedirect("UserHome.zul");
@@ -75,6 +70,13 @@ public class UserLogin_Ctrl extends Window {
 				{
 					return null;
 				}
+			
+			public void logout() 
+ 			{
+				UserDetailsModel l=null;
+ 				As.setLoginCredential(l);
+ 				Executions.sendRedirect("EmpLogin.zul");
+ 			}
 			
 			private void showNotify(String msg,String type, Component ref)
 				{

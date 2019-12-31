@@ -1,3 +1,4 @@
+<?init class="com.pennanttech.Team2.Session.Verify_loginCredentials"?>
 <zk>
 	<style>
 			.user{
@@ -28,9 +29,9 @@
 						    font-family: fantasy;
 					  }
 			 a:link,a:visited, a.external:link,  a.external:visited{color: #CC0000;margin-left:80px;}
-			.z-loading{background:none;margin-top:200px;margin-left:400px;}
-			.z-loading-indicator, .z-apply-loading-indicator{background:none;}
-			.z-loading-icon {background-image: url('1.gif');background-size:40px 40px;}
+			.z-loading-icon {background: url('VZvw.gif');background-size:100px 100px;width: 103px; height: 95px; margin-top: 13%;}
+		.z-loading{	width:100%;	height:100%;background: rgba(0, 0, 0, 0.4117647058823529);}
+		.z-loading-indicator, .z-apply-loading-indicator{background:none;height:100%;}
 			
 	</style>
 	 <style src="style.css"/>

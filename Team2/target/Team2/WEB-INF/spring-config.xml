@@ -13,25 +13,18 @@
             <ref bean="dataSource"/> 
         </property>
     </bean>
-    
-	<bean id="taskDAOTarget" class="com.pennanttech.Team2.TaskDAOImpl">
+  
+	<bean id="taskDAOTarget1" class="com.pennanttech.Team2.Login.LoginDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<bean id="taskDAOTarget2" class="com.pennanttech.Team2.Impl">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
 	
-	<bean id="taskDAOTarget3" class="com.pennanttech.Team2.Empr.EmprDAOImpl">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-	 
-	<bean id="taskDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+	<bean id="Login" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
         <property name="transactionManager"> 
             <ref bean="transactionManager"/> 
         </property> 
         <property name="target"> 
-            <ref bean="taskDAOTarget"/> 
+            <ref bean="taskDAOTarget1"/> 
         </property> 
         <property name="transactionAttributes"> 
             <props> 
@@ -42,8 +35,12 @@
             </props> 
         </property>
     </bean> 
-    
-	<bean id="task" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+    <bean id="taskDAOTarget2" class="com.pennanttech.Team2.User.UserPagesDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	
+	<bean id="UserDAO" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
         <property name="transactionManager"> 
             <ref bean="transactionManager"/> 
         </property> 
@@ -60,7 +57,13 @@
         </property>
     </bean> 
     
-    <bean id="Empr" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
+    
+      <bean id="taskDAOTarget3" class="com.pennanttech.Team2.Empr.EmprDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	
+	<bean id="Empr" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> 
         <property name="transactionManager"> 
             <ref bean="transactionManager"/> 
         </property> 
@@ -76,4 +79,9 @@
             </props> 
         </property>
     </bean> 
+	
+    
+    
+    
+
 </beans>

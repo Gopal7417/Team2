@@ -6,11 +6,18 @@ public class UserDetailsModel {
  
   private String Email_Id;
   private String Password;
-  private  int id;
+  private int Emp_Id;
+
+ private  int id;
   private List Ls;
   private List appiled;
 
-
+  public int getEmp_Id() {
+	return Emp_Id;
+}
+public void setEmp_Id(int emp_Id) {
+	Emp_Id = emp_Id;
+}
 public List getAppiled() {
 	return appiled;
 }

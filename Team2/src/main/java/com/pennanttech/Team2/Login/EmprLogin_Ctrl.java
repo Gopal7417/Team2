@@ -10,10 +10,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
+import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.util.Clients;
+import org.zkoss.zul.Label;
 import org.zkoss.zul.Textbox;
+import org.zkoss.zul.Vlayout;
 import org.zkoss.zul.Window;
 
 import com.pennanttech.Team2.Empr.EmprHome_Ctrl;
@@ -22,7 +26,11 @@ import com.pennanttech.Team2.Session.AuthenticationServiceEmpr;
 import com.pennanttech.Team2.Session.AuthenticationServiceImpl;
 import com.pennanttech.Team2.Session.AuthenticationServiceImplEmpr;
 
+
+
 public class EmprLogin_Ctrl extends Window {
+
+    
 	private static Logger logger = Logger.getLogger(EmprLogin_Ctrl.class);
 	public void popup() 
 		{
@@ -60,10 +68,20 @@ public class EmprLogin_Ctrl extends Window {
 			}
 		else if(val==2) 
 			{
-				showNotify("Username Or Password Wrong","error",login); } else if(val==3) {
+				showNotify("Username Or Password Wrong","error",login); }
+		else if(val==3) {
 				showNotify("Username Or Password Wrong","error",login); } else {
 				showNotify("Please Try Agian","error",login); }
 			}
+ 	public void logout() 
+ 			{
+ 				EmprDetailsModel l=null;
+ 				As.setLoginCredential(l);
+ 				Executions.sendRedirect("EmprLogin.zul");
+ 			}
+ 	
+ 	
+ 	
 	 	
 		private void showNotify(String msg,String type, Component ref)
 			{

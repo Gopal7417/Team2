@@ -5,6 +5,7 @@ import java.sql.Date;
 public class Job_Tbl {
 
 	private int Company_Id;
+	private String Company_Name;
 	private int Job_Id;
 	private String Job_Role;
 	private String Job_Description;
@@ -94,6 +95,12 @@ public class Job_Tbl {
 	}
 	public void setRegister_Date(Date register_Date) {
 		Register_Date = register_Date;
+	}
+	public String getCompany_Name() {
+		return Company_Name;
+	}
+	public void setCompany_Name(String company_Name) {
+		Company_Name = company_Name;
 	}
 	
 	

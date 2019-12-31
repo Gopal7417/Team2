@@ -11,5 +11,7 @@ public interface EmprDAO
 		public List Profile(int profileid) ;
 		public String Approve(int empid);
 		public int Reject(int empid);
-		
+		public void companyupdate(Empr_Model em);
+		public List companyProfile(int Empr_Model);
+		public int valid(Job_Tbl jt);
 	}

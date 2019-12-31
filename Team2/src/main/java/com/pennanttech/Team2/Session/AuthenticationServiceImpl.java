@@ -17,8 +17,7 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 	
 	public void setLoginCredential(UserDetailsModel lm){
 		Session ses=Sessions.getCurrent();
-		ses.setAttribute("login_Credential",lm);
-		
+		ses.setAttribute("login_Credential",lm);	
 	}
 
 	

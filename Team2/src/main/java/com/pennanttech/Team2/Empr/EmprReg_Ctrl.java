@@ -42,7 +42,7 @@ public class EmprReg_Ctrl extends Div
 				ct.setEmail_Id(j5);
 				ct.setPassword(j7);
 			    ct.setPhone_number(j9);
-			    ct.setCurrent_Designation(j12);
+			    ct.setDesg(j12);
 			    db1.emprreg(ct);
 				logger.info("enter77");
 			}

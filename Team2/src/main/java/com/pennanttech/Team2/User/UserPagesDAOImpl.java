@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.incrementer.DataFieldMaxValueIncrementer;
 
 import com.pennanttech.Team2.model;
+import com.pennanttech.Team2.Empr.Job_Tbl;
 import com.pennanttech.Team2.Login.UserDetailsModel;
 import com.pennanttech.Team2.User.User_Details_DAO_Impl.JobDataMapper;
 
@@ -123,13 +124,28 @@ public class UserPagesDAOImpl implements UserPagesDAO {
 			return m1;
 		}}
 	
-	public List Profile(String profileid) 
+	public List Profile(int Emp_Id) 
 		{
 		System.out.println("p");
-		System.out.println(profileid);
-		String sql = "select Name,Date_Of_Birth,Highest_Qualification,Skills,No_of_Years,Resume,Mobile_Number,Email_Id from emp where Email_Id='"+profileid+"'";			
+		System.out.println(Emp_Id);
+		String sql = "select Name,Date_Of_Birth,Highest_Qualification,Skills,No_of_Years,Resume,Mobile_Number,Email_Id from emp where Emp_Id="+Emp_Id;			
 		return jdbcTemplate.query(sql, new JobProfileMapper());
 		}
+	
+	 public void Profileupdate(UserdetailsModel em) { 
+			 int g=em.getEmp_id(); 
+			 
+			 System.out.println("----"+g+"-----");
+			String sql = "Update emp SET Name=?,Date_Of_Birth=?,Highest_Qualification=?,Skills=?,Mobile_Number=?,Email_Id=? WHERE Emp_Id="+g;
+			
+			
+			 	  Object[] params = new Object[]{em.getName(),em.getDate_Of_Birth(),em.getHighest_Qualification(),em.getSkills(),em.getMobile_Number(),em.getEmail_Id()};
+		  int types[] = new int[]{Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
+		  Types.VARCHAR,Types.BIGINT,Types.VARCHAR}; jdbcTemplate.update(sql,params,types);
+		  
+		  
+		  }
+	
 	
 	protected class AppliedJobMapper implements RowMapper {
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -159,8 +175,8 @@ public class UserPagesDAOImpl implements UserPagesDAO {
 
 	protected class jobsTitleMapper implements RowMapper {
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Job_Details m = new Job_Details();
-			m.setJob_Title(rs.getString(1));
+			Job_Tbl m = new Job_Tbl();
+			m.setJob_Role(rs.getString(1));
 			return m;
 		}}
 		
@@ -186,38 +202,46 @@ public class UserPagesDAOImpl implements UserPagesDAO {
 	
 	protected class JobSearchMapper implements RowMapper {
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-		Job_Details m = new Job_Details();
-		m.setJob_id(rs.getInt(5));
-        m.setCompany_Name(rs.getString(2));
-       m.setJob_Role(rs.getString(1));
-       m.setJob_Location(rs.getString(3));
-       m.setSalary(rs.getInt(4));
+		Job_Tbl m = new Job_Tbl();
+		m.setJob_Role(rs.getString(1));
+		m.setCompany_Name(rs.getString(2));
+		m.setJob_Location(rs.getString(3));
+		m.setSalary(rs.getInt(4));
+		m.setJob_Id(rs.getInt(5));
+		m.setJob_Description(rs.getString(6));
+		m.setMinimum_Qualification(rs.getString(7));
+		m.setLast_Date(rs.getDate(8));	
+		m.setExperience(rs.getInt(9));
+		m.setSkills(rs.getString(10));
        return m;
 		}
 }			
 	public List JobSearch(String Role, String Location) {
-		String sql = "  select Job_Role,Company_Name,Job_Location,salary,Job_Id from Company_tbl a,"
-				+ "( select Job_Role,Company_Id,Job_Location,salary,Job_Id from Job_tbl where job_Location = 'vizag' and Job_Role = 'developer')b "
-				+ "where a.Company_Id = b.Company_Id";
+		String sql = " select Job_Role,Minimum_Qualification,Job_Location,salary,Job_Id,Job_Description,Company_Name,"
+				+ "last_date,Experience,Skills from Company_tbl a,( select * from Job_tbl where job_Location = 'vizag' and Job_Role = 'developer')b"
+				+ " where a.Company_Id = b.Company_Id";
 		return jdbcTemplate.query(sql, new JobSearchMapper());
 	}
 
 	protected class JobDataMapper implements RowMapper {
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Job_Details m = new Job_Details();
-			m.setJob_Description(rs.getString(1));
-			m.setExperince(rs.getInt(2));
-			m.setCompany_Name(rs.getString(3));			
-			m.setJob_Location(rs.getString(4));
-			    
+			Job_Tbl m = new Job_Tbl();
+			m.setJob_Role(rs.getString(1));
+			m.setCompany_Name(rs.getString(2));
+			m.setJob_Location(rs.getString(3));
+			m.setSalary(rs.getInt(4));
+			m.setJob_Id(rs.getInt(5));
+			m.setJob_Description(rs.getString(6));
+			m.setMinimum_Qualification(rs.getString(7));
+			m.setLast_Date(rs.getDate(8));	
+			m.setExperience(rs.getInt(9));
+			m.setSkills(rs.getString(10));
 			return m;
 		}}
 	
 	public List Job_Data(int jobid) {
 		System.out.println(jobid);
-	String sql = "  select b.Job_Description,b.Experience,a.Company_Name,b.Job_Location from Company_tbl a,"
-			+ "(select Job_Description,Experience,Company_Id,Job_Location from job_tbl where Job_Id = "+jobid+")b "
-			+ "where a.Company_Id = b.Company_Id;";			
+	String sql = "select b.Job_Role,a.Company_Name,b.Job_Location,b.salary,b.Job_Id,b.Job_Description,b.Minimum_Qualification,b.last_date,b.Experience,b.Skills from Company_tbl a,(select * from job_tbl where Job_Id = "+jobid+")b where a.Company_Id = b.Company_Id;";			
 	return jdbcTemplate.query(sql, new JobDataMapper());
 	}
 
@@ -282,6 +306,9 @@ public class UserPagesDAOImpl implements UserPagesDAO {
 		}
 		
 	}
+	
+	
+	
 
 	
 }
