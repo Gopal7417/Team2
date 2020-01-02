@@ -1,0 +1,39 @@
+<zk>
+
+<window id="click1" use="com.pennanttech.Team2.Empr.CompanyProfilepopup"> 
+
+
+<vbox>
+<hbox>
+<label value="Company Name"></label>
+<textbox id="Company_Name" style="margin-left:48px"/>
+</hbox>
+
+<hbox>
+<label value="Phone Number:"/>
+<longbox  id="Phone_number" width="195px" style="margin-left: 51px"/>
+</hbox>
+
+<hbox>
+<label value="Email ID:"/>
+<textbox id="Email_Id" style="margin-left:101px"/>
+</hbox>
+
+<hbox>
+<label value="Recruiter:"/>
+<textbox  id="Recruiter_Name" style="margin-left:97px"/>
+</hbox>
+<hbox>
+<label value="Current Designation:"/>
+<textbox  id="Desg" style="margin-left:22px"/>
+</hbox>
+
+
+
+
+<button label="submit"   onClick="click1.update()"  style="margin-left:187px;margin-top:8px"></button>
+
+</vbox>
+
+</window>
+</zk>

@@ -1,0 +1,96 @@
+<?page title="Login" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<style>
+		.z-loading-icon {
+		background:none;
+		
+	
+		 margin-top: 13%;
+		  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  background:black;
+  animation: z-loading 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+		 }
+		 @keyframes z-loading {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
+  }
+}.z-loading-indicator{
+text-align:left !important;
+}
+		
+		.z-loading{
+			width:100%;
+				height:100%;
+				background: rgba(0, 0, 0, 0.4117647058823529);
+				}
+		.z-loading-indicator, .z-apply-loading-indicator{background:none;height:100%;color:transparent}
+		.new1{    color: #f91c45;margin-left: 25px;	}
+		body { margin: 0;padding: 0 0px;}
+	 	.z-a:visited { color: #000;}
+		.z-a:visited:hover {color: #6b6969;}
+		.z-a:hover { color: #000;}
+		.z-a { color: #6b6969;margin-left: 84px;}
+		.Whitebox{float:right;margin-top:120px;margin-right:207px;}		
+		.z-window {  padding:0px;}
+		.text{margin-left:25px;margin-top:50px;}
+		.text2{margin-left:25px;margin-top:15px;}
+		.z-button{ background-color: #f91c45;}
+		.z-button:hover{  background-color: #f91c45;  box-shadow: 0px 0px 2px black; }
+		.z-button:focus{  background-color: #f91c45;  box-shadow: 0px 0px 2px black;   border-color:#bfbfbf;}
+		.z-textbox:focus{    border-radius:4px;   position: relative;   border-color:red;}
+		
+		.one-edge-shadow {-webkit-box-shadow: 0 8px 6px -6px black;	   -moz-box-shadow: 0 8px 6px -6px black; box-shadow: 0 8px 6px -6px black;}
+		.one-edge-shadow:hover {-webkit-box-shadow: 0 8px 8px -6px black;-moz-box-shadow: 0 10px 6px -6px black;  box-shadow: 0 8px 10px -6px black;}
+	</style>
+	<window id="click" contentStyle="background-image:url('../images/Background/loginbackground1.jpg');background-repeat: no-repeat;-webkit-background-size: cover;-moz-background-size: cover; -o-background-size: cover; background-size: cover;"  width="100%" height="100%" use="com.pennanttech.Team2.Login.UserLogin_Ctrl">
+	 						 	
+	        <div class="Whitebox">
+	        	 <image  src="/images/Content/LOGOBOX.jpg" width="300px" height="83px" class="one-edge-shadow" style=" margin-top: 50px;"></image> 
+					<div  style="width:300px; height:320px; background-color:white; background: rgba(255, 255, 255, 0.6); 
+								box-shadow: -0px 0px 12px black;">
+			            <vbox>
+							<hlayout sclass="text">
+	                          	<span sclass="z-icon-user"/>
+				                <textbox  id="Email_Id"  placeholder="Username"/>
+				            </hlayout>
+	                        <hlayout  sclass="text2">
+	                            <span sclass="z-icon-key"/>
+				                <textbox  id="Password" placeholder="Password"/>
+				            </hlayout>
+				            <vbox>
+	                           	<button label="Login" style=" margin-left: 47px;margin-top: 20px;background-color: #f91c45;width: 210px;" onClick="click.verifyLogin()"/>
+	                           <a  class="new" onClick="click.forgot()"><label  value="Forget Password" style="margin-left: 64px;margin-top: 22px;color: #34445a;  font-size: 14px;"/></a>
+				            </vbox>
+				             <separator/>
+				            <hbox>
+	                          <label value="Not a Member?"  style="margin-left: 45px; margin-top: 22px;color: white;
+    margin-top: 11px;  font-size: 14px;"/>
+								<button id="submitButton" label="Signup" onClick= "click.popup()" style="    margin-left: -106px; 
+    margin-top: 20px; background-color: #34445a; width: 210px;"/>
+								
+				            </hbox>
+				            <separator/>
+				            <hlayout>
+	                           	<div class="ForgetPassword">
+									
+								</div>
+				            </hlayout>
+	            		</vbox>
+	      			</div>
+	         </div>
+	</window>
+</zk>

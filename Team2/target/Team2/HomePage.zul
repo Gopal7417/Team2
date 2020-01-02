@@ -1,0 +1,42 @@
+<?page title="WelcomePage" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<style>
+		body { margin: 0;padding: 0 0px;}
+		.z-window {  padding:0px;}
+		.magnifier{margin-left: 730px; margin-top: 134px; width: 380px; -webkit-filter: drop-shadow(0px 0px 5px black); }
+ 		.magnifier:hover { transition: all 0.3s;    position:relative;   transform: scale(1.009);  -webkit-filter: drop-shadow(0px 0px 10px black); } 
+ 		.line1{margin-left: -170px;  margin-top: 182px;overflow:visible;}
+		.line2{margin-left: -184px;  margin-top: 31px;overflow:visible;}
+		.z-button{width: 201px; height: 43px;font-size: 23px; background-color: #f91c45; box-shadow: 0px 0px 5px black; }
+		.z-button:hover{background-color: #f91c45; transition: all 1s ease;position:relative; box-shadow: 0px 0px 12px black; text-decoration: underline;}
+		.z-button:focus{  background-color: #f91c45;box-shadow: 0px 0px 14px black; border-color:#bfbfbf;}
+	</style>
+	<image src="/images/Content/LOGO.jpg" width="175px" height="58px" style=" margin-left: 30px; margin-top: 30px; "> </image>
+	<div Style="background-image:url('./images/Background/frstpagebck.jpg');background-repeat: no-repeat;-webkit-background-size: cover;
+  			-moz-background-size: cover; -o-background-size: cover; background-size: cover;"  width="100%" height="85.5%">
+		<hlayout>
+			<hbox>
+ 				<image src="/images/Content/magnifier.png" sclass="magnifier"></image>
+				<vbox>
+					<image src="/images/Content/line2.png" sclass="line1 "></image>
+					<image src="/images/Content/line2.png" sclass="line2"></image>
+					<image src="/images/Content/cooking.png" style="margin-left: -325px;margin-top:-21px;width: 50px;"></image>
+					<image src="/images/Content/worker.png" style="margin-left: -191px; margin-top: -46px; width: 45px;"></image>
+					<image src="/images/Content/certificate.png" style="    margin-left: -200px;margin-top:-195px;width: 47px;"></image>
+					<image src="/images/Content/employee.png" style="margin-left: -262px; margin-top: -157px;width: 53px;"></image>
+				</vbox>
+				<vbox>
+					<image src="/images/Content/engineer.png" style=" margin-left: -520px;margin-top: 194px; width: 52px;"></image>
+					<image src="/images/Content/telemarketer.png" style=" margin-left: -600px;margin-top: -23px;width: 52px;"></image>
+					<image src="/images/Content/doctor.png" style="    margin-left: -460px;margin-top: -100px;width: 50px;"></image>
+					<image src="/images/Content/delivery-bike.png" style="    margin-left: -530px;margin-top: -70px;width: 55px;"></image>
+
+				</vbox>
+			</hbox>
+			<vbox>
+				<button label="Search for Job" style="margin-left: -183px;margin-top: 166px;" href="/EmpPages/EmpLogin.zul" />
+				<button label="Post a job" style="margin-top: 44px; margin-left: -183px;" href="/EmprPages/EmprLogin.zul" />
+			</vbox>
+  		</hlayout>
+  </div>
+</zk>
