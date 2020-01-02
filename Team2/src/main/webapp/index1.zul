@@ -69,6 +69,7 @@
 				</vbox>
 				
 			</vlayout>
+			<label id ="hello" />
 		</div>
 	</window>
 </zk>
