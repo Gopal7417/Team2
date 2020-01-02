@@ -25,9 +25,6 @@ import com.pennanttech.Team2.Session.AuthenticationService;
 import com.pennanttech.Team2.Session.AuthenticationServiceEmpr;
 import com.pennanttech.Team2.Session.AuthenticationServiceImpl;
 import com.pennanttech.Team2.Session.AuthenticationServiceImplEmpr;
-
-
-
 public class EmprLogin_Ctrl extends Window {
 
     
@@ -79,12 +76,16 @@ public class EmprLogin_Ctrl extends Window {
  				As.setLoginCredential(l);
  				Executions.sendRedirect("EmprLogin.zul");
  			}
- 	
- 	
- 	
-	 	
-		private void showNotify(String msg,String type, Component ref)
+ 	private void showNotify(String msg,String type, Component ref)
 			{
 			    Clients.showNotification(msg, type, ref, "middle_center", 2000);
 			}
+		
+		public void forgot()
+		{
+			 Window window = (Window)Executions.createComponents("ForgetPassword.zul", null, null);
+			 window.setClosable(true);
+			 window.setTitle("");
+			 window.doModal();
+		}		
 }

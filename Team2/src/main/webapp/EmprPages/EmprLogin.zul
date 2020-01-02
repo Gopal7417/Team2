@@ -1,7 +1,12 @@
 <zk>
 	<style>
+		.z-button:hover {
+    color: #fff;
+    border-color: transparent;
+    background-color: #34445a;
+}
 		.new1{    color: #f91c45;margin-left: 25px;	}
-		body { margin: 0;padding: 0 0px;}
+			body { margin: 0;padding: 0 0px;}
 	 	.z-a:visited { color: #000;}
 		.z-a:visited:hover {color: #6b6969;}
 		.z-a:hover { color: #000;}
@@ -10,11 +15,12 @@
 		.z-window {  padding:0px;}
 		.text{margin-left:25px;margin-top:50px;}
 		.text2{margin-left:25px;margin-top:15px;}
-		.z-button { background-color: #f91c45;width: 210px;}
+		.z-button{ background-color: #f91c45;}
+		.submit
 		.z-button:hover{  background-color: #f91c45;  box-shadow: 0px 0px 2px black; }
 		.z-button:focus{  background-color: #f91c45;  box-shadow: 0px 0px 2px black;   border-color:#bfbfbf;}
 		.z-textbox:focus{    border-radius:4px;   position: relative;   border-color:red;}
-		.z-label{ margin-left: 45px; margin-top: 22px;color: white}
+		.submit{background-color: #34445a;}
 		.one-edge-shadow {-webkit-box-shadow: 0 8px 6px -6px black;	   -moz-box-shadow: 0 8px 6px -6px black; box-shadow: 0 8px 6px -6px black;}
 		.one-edge-shadow:hover {-webkit-box-shadow: 0 8px 8px -6px black;-moz-box-shadow: 0 10px 6px -6px black;  box-shadow: 0 8px 10px -6px black;}
 	</style>
@@ -35,17 +41,14 @@
 				                <textbox id="Password" placeholder="Password"/>
 				            </hlayout>
 				            <vbox>
-	                           	<button label="Login"  style=" margin-left: 47px;margin-top: 20px;" onClick="click.verifylogo()"/> <!--  href="mainpage.zul" -->
-	                           	<a href="ForgetPassword.zul" class="new">
-	                           	<label value="Forget Password" style="margin-left: 64px;
-    margin-top: 22px;
-    color: #34445a;  font-size: 14px;"/></a>
+	                           	<button label="Login"  style=" margin-left: 47px;margin-top: 20px;background-color: #f91c45;width: 210px;" onClick="click.verifylogo()"/> <!--  href="mainpage.zul" -->
+	                         	<a  class="new" onClick="click.forgot()"><label  value="Forget Password" style="margin-left: 64px;margin-top: 22px;color: #34445a;  font-size: 14px;"/></a>
 				            </vbox>
 				             <separator/>
 				            <hbox>
-	                          <label value="Not a Member?" style="margin-left: 50px;
+	                          <label value="Not a Member?" style="margin-left: 45px; margin-top: 22px;color: white;
     margin-top: 11px;  font-size: 14px;"/>
-								<button id="signUp"  label="Signup" style="    margin-left: -106px;     margin-top: 20px; background-color: #34445a;"  href="Companyform.zul"/>
+								<button id="signUp"  label="Signup" style="  width: 210px;  margin-left: -106px;     margin-top: 20px; background-color: #34445a;"  href="Companyform.zul"/>
 								
 				            </hbox>
 				            <separator/>

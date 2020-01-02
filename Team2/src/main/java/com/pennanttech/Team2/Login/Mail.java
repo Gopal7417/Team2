@@ -13,7 +13,7 @@ import javax.mail.internet.MimeMultipart;
 
 	public class Mail 
 		{
-			public String main(String email)
+			public String sendMail(String email)
 				{
 					int randomPin   =(int) (Math.random()*9000)+1000; 
 				    String otp  = String.valueOf(randomPin); 

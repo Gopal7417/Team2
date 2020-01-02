@@ -11,5 +11,8 @@ public interface LoginDAO {
 	public int validempr(String b1, String c1);
 	public int cmpnyid(String b1); 
 	public int empid(String b1);
-	public int forget(String b1);
+	public int Emprmailcheck(String b1);
+	public void EmprPwdChange(String mail,String pwd);
+	public int Usermailcheck(String b1);
+	public void UserPwdChange(String mail,String pwd);
 }

@@ -82,6 +82,12 @@ public class UserLogin_Ctrl extends Window {
 				{
 			        Clients.showNotification(msg, type, ref, "middle_center", 2000);
 			    }
+			public void forgot()
+			{
+				 Window window = (Window)Executions.createComponents("ForgetPassword.zul", null, null);
+				 window.setClosable(true);
+				 window.doModal();
+			}		
  }
 	
 	

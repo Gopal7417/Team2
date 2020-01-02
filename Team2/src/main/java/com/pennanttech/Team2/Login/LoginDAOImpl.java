@@ -167,20 +167,66 @@ public class LoginDAOImpl implements LoginDAO {
 		
 		}
 
-		public int forget(String b1) {
+		public int Emprmailcheck(String b1) {
 			String sql="select Email_Id from Company_tbl where Email_Id = ?";
+			try {
 			String s= jdbcTemplate.queryForObject(sql, new Object[] {b1},String.class);
 			if(b1.equals(s))
-				{return 1;}
-			else 
-				{return 0;}
+			{ 
+				return 1;
+			} 
+			else
+			{
+				return 0;
+	  		} 
+
+			}
+			
+			catch(EmptyResultDataAccessException e){
+				
+				return 0;
+			
+			}
+	}
+		
+		public void EmprPwdChange(String mail,String pwd) {
+			String sql="update Company_tbl set Password = ? where Email_Id = ?";
+			
+			jdbcTemplate.update(sql, new Object[] {pwd,mail});
+			
+	
+		}
+
+
+		public int Usermailcheck(String b1) {
+			String sql="select Email_Id from emp where Email_Id = ?";
+			try {
+			String s= jdbcTemplate.queryForObject(sql, new Object[] {b1},String.class);
+			if(b1.equals(s))
+			{ 
+				return 1;
+			} 
+			else
+			{
+				return 0;
+	  		} 
+
+			}
+			
+			catch(EmptyResultDataAccessException e){
+				
+				return 0;
+			
+			}
+	}
+		
+		public void UserPwdChange(String mail,String pwd) {
+			String sql="update emp set Password = ? where Email_Id = ?";
+			
+			jdbcTemplate.update(sql, new Object[] {pwd,mail});
+			
+	
 		}
 		
-		
-		
-		
-
-
-
 }
 

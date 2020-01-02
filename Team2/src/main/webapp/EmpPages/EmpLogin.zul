@@ -48,11 +48,11 @@ text-align:left !important;
 		.z-window {  padding:0px;}
 		.text{margin-left:25px;margin-top:50px;}
 		.text2{margin-left:25px;margin-top:15px;}
-		.z-button { background-color: #f91c45;width: 210px;}
+		.z-button{ background-color: #f91c45;}
 		.z-button:hover{  background-color: #f91c45;  box-shadow: 0px 0px 2px black; }
 		.z-button:focus{  background-color: #f91c45;  box-shadow: 0px 0px 2px black;   border-color:#bfbfbf;}
 		.z-textbox:focus{    border-radius:4px;   position: relative;   border-color:red;}
-		.z-label{ margin-left: 45px; margin-top: 22px;color: white}
+		
 		.one-edge-shadow {-webkit-box-shadow: 0 8px 6px -6px black;	   -moz-box-shadow: 0 8px 6px -6px black; box-shadow: 0 8px 6px -6px black;}
 		.one-edge-shadow:hover {-webkit-box-shadow: 0 8px 8px -6px black;-moz-box-shadow: 0 10px 6px -6px black;  box-shadow: 0 8px 10px -6px black;}
 	</style>
@@ -72,15 +72,15 @@ text-align:left !important;
 				                <textbox  id="Password" placeholder="Password"/>
 				            </hlayout>
 				            <vbox>
-	                           	<button label="Login" style=" margin-left: 47px;margin-top: 20px;" onClick="click.verifyLogin()"/>
-	                           	<a href="ForgetPassword.zul" class="new"><label value="Forget Password" style="margin-left: 64px;margin-top: 22px;color: #34445a;  font-size: 14px;"/></a>
+	                           	<button label="Login" style=" margin-left: 47px;margin-top: 20px;background-color: #f91c45;width: 210px;" onClick="click.verifyLogin()"/>
+	                           <a  class="new" onClick="click.forgot()"><label  value="Forget Password" style="margin-left: 64px;margin-top: 22px;color: #34445a;  font-size: 14px;"/></a>
 				            </vbox>
 				             <separator/>
 				            <hbox>
-	                          <label value="Not a Member?" style="margin-left: 50px;
+	                          <label value="Not a Member?"  style="margin-left: 45px; margin-top: 22px;color: white;
     margin-top: 11px;  font-size: 14px;"/>
 								<button id="submitButton" label="Signup" onClick= "click.popup()" style="    margin-left: -106px; 
-    margin-top: 20px; background-color: #34445a;"/>
+    margin-top: 20px; background-color: #34445a; width: 210px;"/>
 								
 				            </hbox>
 				            <separator/>
