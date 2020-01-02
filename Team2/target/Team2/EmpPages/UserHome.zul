@@ -108,7 +108,9 @@ color: #f91c45;}
 		</div>
 	</div>
 	<vbox style="float:right;">
-		<button iconSclass="z-icon-sign-out" style="    color: #fff;    background-color: #f91c45;    margin-left: 470px;    margin-top: 33px;" label="logout"/>
+		<div id="click"  use="com.pennanttech.Team2.Login.UserLogin_Ctrl">
+			<button iconSclass="z-icon-sign-out" style="    color: #fff;    background-color: #f91c45;    margin-left: 470px;    margin-top: 33px;" label="logout"  onClick="click.logout()"/>
+		</div>
 	</vbox>
 </hbox>
 <div id = "Home" use="com.pennanttech.Team2.User.UserHome_Ctrl">

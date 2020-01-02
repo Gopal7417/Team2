@@ -1,3 +1,4 @@
+<?init class="com.pennanttech.Team2.Session.Verify_loginCredentials_Empr"?>
 <?page title="Home" contentType="text/html;charset=UTF-8"?>
 <zk>
 	<style>
@@ -101,9 +102,11 @@
 		
 		<vbox style="float:right;margin-left: 1100px;    margin-top: 30px;">
 			<hbox>
-				<span sclass="z-icon-user" style="color: #34445b;"/><label id="user_role_label" style="color: #34445b;" value="Profile"/>
+				<span sclass="z-icon-user" style="color: #34445b;"/><a href="CompanyProfile.zul"><label id="user_role_label" style="color: #34445b;" value="Profile"  /></a>
 			</hbox>
-			<button iconSclass="z-icon-sign-out" label="logout" style="margin-bottom: 10px;     color: #fff;    background-color: #f91c45;"/>
+			<div id="click"  use="com.pennanttech.Team2.Login.EmprLogin_Ctrl">
+				<button iconSclass="z-icon-sign-out" label="logout" style="margin-bottom: 10px;     color: #fff;    background-color: #f91c45;" onClick="click.logout()"/>
+			</div>
 		</vbox>
 		
 

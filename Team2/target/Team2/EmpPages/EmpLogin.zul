@@ -73,7 +73,7 @@ text-align:left !important;
 				            </hlayout>
 				            <vbox>
 	                           	<button label="Login" style=" margin-left: 47px;margin-top: 20px;" onClick="click.verifyLogin()"/>
-	                           	<a href="mainpage.zul" class="new"><label value="Forget Password" style="margin-left: 64px;margin-top: 22px;color: #34445a;  font-size: 14px;"/></a>
+	                           	<a href="ForgetPassword.zul" class="new"><label value="Forget Password" style="margin-left: 64px;margin-top: 22px;color: #34445a;  font-size: 14px;"/></a>
 				            </vbox>
 				             <separator/>
 				            <hbox>

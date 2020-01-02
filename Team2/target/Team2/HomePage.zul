@@ -34,8 +34,8 @@
 				</vbox>
 			</hbox>
 			<vbox>
-				<button label="Search for Job" style="margin-left: -183px;margin-top: 166px;" href="EmpLogin.zul" />
-				<button label="Post a job" style="margin-top: 44px; margin-left: -183px;" href="EmprLogin.zul" />
+				<button label="Search for Job" style="margin-left: -183px;margin-top: 166px;" href="/EmpPages/EmpLogin.zul" />
+				<button label="Post a job" style="margin-top: 44px; margin-left: -183px;" href="/EmprPages/EmprLogin.zul" />
 			</vbox>
   		</hlayout>
   </div>

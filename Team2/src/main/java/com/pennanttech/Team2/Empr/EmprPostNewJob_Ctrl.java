@@ -1,5 +1,6 @@
 package com.pennanttech.Team2.Empr;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
@@ -11,14 +12,20 @@ import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zul.Combobox;
 import org.zkoss.zul.Datebox;
+import org.zkoss.zul.Decimalbox;
 import org.zkoss.zul.Div;
 import org.zkoss.zul.Intbox;
+import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 
 import com.pennanttech.Team2.Job_Tbl;
 import com.pennanttech.Team2.Job_TblCtrl;
+import com.pennanttech.Team2.Login.EmprDetailsModel;
+import com.pennanttech.Team2.Session.AuthenticationServiceEmpr;
+import com.pennanttech.Team2.Session.AuthenticationServiceImplEmpr;
 import com.pennanttech.Team2.User.LocationModel;
 import com.pennanttech.Team2.User.UserPagesDAO;
 import com.pennanttech.Team2.User.User_Details_DAO;
@@ -31,6 +38,8 @@ public class EmprPostNewJob_Ctrl extends Div
 		private Component click;
 		protected List LocList;
 		protected UserPagesDAO UDAO;
+		AuthenticationServiceEmpr as= new AuthenticationServiceImplEmpr();
+		EmprDetailsModel e=new EmprDetailsModel();
 		 public void onCreate() throws Exception {
 			 ApplicationContext ctx =WebApplicationContextUtils.getRequiredWebApplicationContext((ServletContext)getDesktop().getWebApp().getNativeContext());
 				UDAO = (UserPagesDAO)ctx.getBean("UserDAO");
@@ -52,6 +61,7 @@ public class EmprPostNewJob_Ctrl extends Div
 		
 		public void verifyJob() 
 			{
+			 e=as.getLoginCredential();
 				logger.info("enter");
 				ApplicationContext ctx =WebApplicationContextUtils.getRequiredWebApplicationContext((ServletContext)getDesktop().getWebApp().getNativeContext());
 				db1=(EmprDAO)ctx.getBean("Empr");			
@@ -60,9 +70,10 @@ public class EmprPostNewJob_Ctrl extends Div
 				Textbox j=(Textbox)this.getFellow("Job_Role");
 					String j1=j.getValue();
 				Textbox j2=(Textbox)this.getFellow("Job_Description");
-					String j3=j.getValue();
-				Intbox j4=(Intbox)this.getFellow("Salary");
-					int j5=j4.getValue();
+					String j3=j2.getValue();
+					System.out.println(j3);
+				Decimalbox j4=(Decimalbox)this.getFellow("Salary");
+					BigDecimal j5=j4.getValue();
 				Intbox j6=(Intbox)this.getFellow("Experience");
 					int j7=j6.getValue();
 				Intbox j8=(Intbox)this.getFellow("No_of_Openings");
@@ -106,9 +117,10 @@ public class EmprPostNewJob_Ctrl extends Div
 					
 					
 					EmprNewJob_Model jt=new EmprNewJob_Model();
-				 
+					jt.setCompany_Id(e.getCompany_Id());
 				 jt.setJob_Role(j1); 
 				 jt.setJob_Description(j3); 
+				 logger.info(j3);
 				 jt.setSalary(j5);logger.info(j5);
 				 jt.setExperience(j7);
 				 jt.setNo_of_Openings(j9);
@@ -122,7 +134,12 @@ public class EmprPostNewJob_Ctrl extends Div
 				 jt.setI_Date(irDate);
 				 
 				 
-				 db1.newjob(jt);	 logger.info("end");
+				 db1.newjob(jt);	
+				 
+				 Messagebox.show("You have Successfully Posted New Job");
+				 Executions.sendRedirect("EmprHome.zul");
+				 
+				 logger.info("end");
 			}
 	
 	}

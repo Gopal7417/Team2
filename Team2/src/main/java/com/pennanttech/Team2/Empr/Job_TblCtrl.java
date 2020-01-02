@@ -38,8 +38,8 @@ private static Logger logger = Logger.getLogger(Job_TblCtrl.class);
 	private Component click;
 	protected List LocList;
 	protected UserPagesDAO UDAO;
-	AuthenticationServiceEmpr as= new AuthenticationServiceImplEmpr();
-	EmprDetailsModel e=new EmprDetailsModel();
+	//AuthenticationServiceEmpr as= new AuthenticationServiceImplEmpr();
+	
 	 public void onCreate() throws Exception {
 		 ApplicationContext ctx =WebApplicationContextUtils.getRequiredWebApplicationContext((ServletContext)getDesktop().getWebApp().getNativeContext());
 			UDAO = (UserPagesDAO)ctx.getBean("UserDAO");
@@ -60,7 +60,7 @@ private static Logger logger = Logger.getLogger(Job_TblCtrl.class);
 	
 	public void verifyJob() {
 		
-		 e=as.getLoginCredential();
+		// e=as.getLoginCredential();
 		logger.info("enter");
 		ApplicationContext ctx = 
 				WebApplicationContextUtils.getRequiredWebApplicationContext(
@@ -94,8 +94,21 @@ private static Logger logger = Logger.getLogger(Job_TblCtrl.class);
 
 		Textbox j18=(Textbox)this.getFellow("Skills");
 		String j19=j18.getValue();
+		Textbox t=(Textbox)this.getFellow("Venue");
+		
+		Datebox d=(Datebox)this.getFellow("I_Date");
+		
+		
+		  Date d1=d.getValue(); 
+		 SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
+		 String strDate1= formatter.format(d1);
+		 System.out.println(strDate);
+		 java.sql.Date jdate1=java.sql.Date.valueOf(strDate); 
+		 System.out.println(jdate);
+		Textbox r=(Textbox)this.getFellow("Rounds");
+		
 		Job_Tbl jt=new Job_Tbl();
-		 jt.setCompany_Id(e.getCompany_Id());
+		 //jt.setCompany_Id(e.getCompany_Id());
 		 jt.setJob_Role(j1); 
 		 jt.setJob_Description(j3); 
 		 jt.setSalary(j5);
@@ -105,10 +118,14 @@ private static Logger logger = Logger.getLogger(Job_TblCtrl.class);
 		 jt.setMinimum_Qualification(j11);
 		 jt.setLast_Date(jdate);
 		 jt.setJob_Location(j15); 
-		
-		 logger.info(j7);
 		 jt.setSkills(j19); 
-		 db1.valid(jt);
+		 jt.setVenue(t.getValue());
+		 jt.setI_Date(jdate1);
+		 logger.info(j7);
+		 jt.setRounds(r.getValue());
+		
+	db1.valid(jt);
+		 
 		 Messagebox.show("You have Successfully Posted New Job");
 		 Executions.sendRedirect("EmprHome.zul");
 		 logger.info("end");

@@ -27,7 +27,7 @@
     </style>
     
     <image src="/images/Content/LOGO.jpg" width="175px" height="58px" style="margin-left:30px; margin-top:30px;"></image>
-    <div id="click" width="100%" height="100%"  use="com.pennanttech.Team2.Empr.Job_TblCtrl" >
+    <div id="click" width="100%" height="100%"  use="com.pennanttech.Team2.Empr.EmprPostNewJob_Ctrl" >
     <tabbox id="tb" height="100%">
 	    <tabs id="tabs">
 	        
@@ -50,7 +50,7 @@
 									 <label value="Job Description" width="150px"/><label value="*" sclass="p" /> <space width="50px"/>
 						                 <textbox id="Job_Description"  rows="3" width="250px" placeholder="Eg.Good programming skills"/><separator/><separator/>
 									 <label value="Salary " width="150px"/><label value="*" sclass="p" /> <space width="50px"/>
-					                      <intbox id="Salary" width="250px" placeholder="in LPA"/>	<separator/><separator/>
+					                      <decimalbox id="Salary" width="250px" placeholder="in LPA"/>	<separator/><separator/>
 					     			 <label value="No Of Openings" width="150px"/><label value="*" sclass="p" /> <space width="50px"/>
 					                       <intbox id="No_of_Openings"  width="250px"  placeholder="Eg.3"/><separator/><separator/> <separator/><separator/>
 					     			 <label value="Experience"  width="150px" /><label value="*" sclass="p" /> <space width="50px"></space>
@@ -107,7 +107,7 @@
 		                      	<label value="Venue"  width="150px" /><label value="*" sclass="p" /> <space width="50px"></space>
 		                       		 <textbox id="Venue" width="250px" placeholder="7th Floor,Hall No 3,PavanTowers" /> <separator/>
 		                       		<label value="Date"  width="150px" /><label value="*" sclass="p" /> <space width="50px"></space>
-		                              <datebox id="I_Date" format="yyyy-MM-dd-HH-mm" constraint="no past" width="250px"  placeholder="Eg.28th Dec 19"  readonly="true"/><separator/><separator/>
+		                              <datebox id="I_Date" format="dd/MM/yyyy - HH:mm" constraint="no past" width="250px"  placeholder="Eg.28th Dec 19"  readonly="true"/><separator/><separator/>
 								<!-- <label value="Time"  width="150px" /><label value="*" sclass="p" /> <space width="50px"></space>
 		                              <timebox id="I_Time" width="250px" placeholder="Eg.10:00 AM"/><separator/><separator/> -->
 				 				<label value="Rounds" width="150px" /><label value="*" sclass="p" /> <space width="50px"></space>  

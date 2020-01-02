@@ -1,3 +1,4 @@
+<?init class="com.pennanttech.Team2.Session.Verify_loginCredentials"?>
 <?page title="Profile page" contentType="text/html;charset=UTF-8"?>
 <zk>
 <style>
@@ -43,7 +44,12 @@ background-color:#F9145a;
 		    float: none;
 		  }
 		}
-
+	.z-a:visited {
+	    color: #87898c;
+	}
+	.z-a:visited:hover {
+	    color: black;
+	}
 
 </style>
 <style src="style.css"/>
@@ -59,64 +65,55 @@ background-color:#F9145a;
 		</div>
 	</div>
 	<vbox style="float:right;">
-		<button iconSclass="z-icon-sign-out" style="    color: #fff;    background-color: #f91c45;    margin-left: 470px;    margin-top: 33px;" label="logout"/>
+			<div id="click"  use="com.pennanttech.Team2.Login.UserLogin_Ctrl">
+			<button iconSclass="z-icon-sign-out" style="    color: #fff;    background-color: #f91c45;    margin-left: 470px;    margin-top: 33px;" label="logout"  onClick="click.logout()"/>
+		</div>
 	</vbox>
 </hbox>
 
 
-<div use="com.pennanttech.Team2.User.ProfileCtrl" id="prof">
-<hbox>
-
-
-<image src="/images/Content/Idcard.png" style=" margin-top: 80px;
-    margin-left: 44px;
-    width: 401px;"/>
-
-<div Style="margin-top: 373px;
-    margin-left: -278px;">
-    <vbox>
-<label id="name" style="font-weight:bold;"/> 
-<separator/>
-<hbox>
-<label value="DOB:"/>
-<label id="DOB" style="font-weight:bold;"/>
-</hbox>
-<hbox sclass="a">
-<span class="z-icon-briefcase"/>
-<label sclass="p" id="fresher" style="font-weight:bold;"/>
-</hbox>
-</vbox>
-</div >
-</hbox>
-<div Style="margin-left:474px; margin-top:-462px">
-<vbox>
-<hbox>
-<span class="z-icon-pencil"></span>
-<button label="Edit Profile" onClick="prof.popup()" sclass="button"/>
-
-</hbox>
-<separator bar="true" width="350px"/>
-<hbox>
-<label value="Education:"/>
-<label id="Ed"/><label id="course" style="font-weight:bold;"/>
-</hbox>
-<hbox>
-<label value="Skills:"/>
-<label id="skills"/><label id="lang" style="font-weight:bold;"/>
-</hbox>
-<label id="AttachResume" style="font-weight:bold;"/>
-<separator/>
-<label id="Contactdetails"/>
-
-<hbox>
-<span class="z-icon-envelope"></span>
-<label id="email" style="font-weight:bold;"/>
-</hbox>
-<hbox>
-<span class="z-icon-phone"></span>
-<label id="number" style="font-weight:bold;"/>
-</hbox>
-</vbox>
- </div>
- </div>
+		<div use="com.pennanttech.Team2.User.ProfileCtrl" id="prof">
+			<hbox>
+				<image src="/images/Content/Idcard.png" style=" margin-top: 80px; margin-left: 44px;width: 401px;"/>
+					<div Style="margin-top: 373px; margin-left: -278px;">
+			   			 <vbox>
+							<label id="name" style="font-weight:bold;"/><separator/>
+							<hbox>
+								<label value="DOB:"/>
+								<label id="DOB" style="font-weight:bold;"/>
+							</hbox>
+							<hbox sclass="a">
+								<label value="Experience"/><span class="z-icon-briefcase"/><label value=":"/>
+								<label sclass="p" id="fresher" style="font-weight:bold;"/><label value="Years"/>
+							</hbox>
+						</vbox>
+					</div >
+			</hbox>
+			<div Style="margin-left:474px; margin-top:-462px">
+				<vbox>
+					<hbox>
+						<span class="z-icon-pencil"></span>
+						<button label="Edit Profile" onClick="prof.popup()" sclass="button"/>
+					</hbox><separator bar="true" width="350px" />
+					<hbox>
+						<label value="Education:"/>
+						<label id="Ed"/><label id="course" style="font-weight:bold;"/>
+					</hbox>
+					<hbox>
+						<label value="Skills:"/>
+						<label id="skills"/><label id="lang" style="font-weight:bold;"/>
+					</hbox>
+					<label id="AttachResume" style="font-weight:bold;"/><separator/>
+					<label id="Contactdetails"/>
+					<hbox>
+						<span class="z-icon-envelope"></span>
+						<label id="email" style="font-weight:bold;"/>
+					</hbox>
+					<hbox>
+						<span class="z-icon-phone"></span>
+						<label id="number" style="font-weight:bold;"/>
+					</hbox>
+				</vbox>
+		 	</div>
+		 </div>
 </zk>

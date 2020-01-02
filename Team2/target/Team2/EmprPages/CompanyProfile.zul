@@ -1,0 +1,68 @@
+<?init class="com.pennanttech.Team2.Session.Verify_loginCredentials_Empr"?>
+<zk>
+<style>
+.n{
+		margin-top:85px;
+}
+
+.v1{
+margin-left:159px;
+margin-top:99px;
+
+}
+.l1{
+margin-right:150px;
+}
+
+</style>
+	<hbox>
+		<a href="" class="logo"><image src="/images/Content/LOGO.jpg" width="175px" height="58px" style=" margin-left: 30px; margin-top: 30px; "></image></a>
+		
+		<vbox style="float:right;margin-left: 1100px;    margin-top: 30px;">
+			<hbox>
+				<span sclass="z-icon-home" style="color: #34445b;"/><a href="EmprHome.zul"><label id="user_role_label" style="color: #34445b;" value="Home"/></a>
+			</hbox>
+			<div id="click1"  use="com.pennanttech.Team2.Login.EmprLogin_Ctrl">
+				<button iconSclass="z-icon-sign-out" label="logout" style="margin-bottom: 10px;     color: #fff;    background-color: #f91c45;" onClick="click1.logout()"/>
+			</div>
+		</vbox>
+		</hbox>
+		<separator bar="true"></separator>
+		<div id="click"  use="com.pennanttech.Team2.Empr.CompanyProfileCtrl">
+<hbox >      <!--  -->
+
+<button label="Edit Profile"  onClick="click.popup1()"/>
+
+</hbox>		
+
+	
+	       <vbox sclass="v1">
+	       <hbox>
+	       <label value="CompanyName:"/>
+	        <label  id="CompanyName"></label>
+	       </hbox>
+	       <separator/>
+	       <hbox>
+	       <label value="Phone Number:"></label>
+	       <label id="PhoneNumber" sclass="l2"></label>
+           </hbox>
+                  <separator/>
+	       <hbox sclass="h1">
+	       <label value="Email Id:" sclass="e"/>
+	       <label id="EmailID"></label>
+	       </hbox>
+	       <separator/>
+	       <hbox>
+	       <label value="Recruiter:"/>
+	       <label id="Recruiter" sclass="l4"></label>
+			</hbox>
+			<separator/>
+			<hbox>
+			<label value="Current Designation:"/>
+			<label id="Desg" sclass="l5"></label>
+			</hbox>			
+			</vbox>
+	
+</div>
+
+</zk>

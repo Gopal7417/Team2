@@ -1,5 +1,6 @@
 package com.pennanttech.Team2.Empr;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Time;
 
@@ -10,7 +11,7 @@ public class EmprNewJob_Model
 	private int Job_Id;
 	private String Job_Role;
 	private String Job_Description;
-	private int Salary;
+	private BigDecimal Salary;
 	private int No_of_Openings;
 	private int Experience;
 	private String Minimum_Qualification ;
@@ -48,10 +49,11 @@ public class EmprNewJob_Model
 	public void setJob_Description(String job_Description) {
 		Job_Description = job_Description;
 	}
-	public int getSalary() {
+	
+	public BigDecimal getSalary() {
 		return Salary;
 	}
-	public void setSalary(int salary) {
+	public void setSalary(BigDecimal salary) {
 		Salary = salary;
 	}
 	public int getNo_of_Openings() {

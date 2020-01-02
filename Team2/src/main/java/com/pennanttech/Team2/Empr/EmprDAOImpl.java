@@ -1,5 +1,6 @@
 package com.pennanttech.Team2.Empr;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -65,25 +66,25 @@ public class EmprDAOImpl implements EmprDAO
 		public int newjob(EmprNewJob_Model j) 
 			{
 				// TODO Auto-generated method stub
-				System.out.println("1");
+				System.out.println("11");
 				String j71=j.getJob_Role();
 				String j72=j.getJob_Description();
-				int j73=j.getSalary();
+				System.out.println(j72);
+				BigDecimal j73=j.getSalary();
 				int j74=j.getExperience();	
 				int j75=j.getNo_of_Openings();				
-				String j76=j.getMinimum_Qualification();System.out.println("12");
+				String j76=j.getMinimum_Qualification();
+				System.out.println("77");
 				Date j77=j.getLast_Date();
 				String j78=j.getJob_Location(); 
-					/* String j79=j.getAddress(); */
 				String j80=j.getSkills();
 				String j81=j.getVenue();
 				String j82=j.getI_Date();
-						
 				String j84=j.getRounds();
 				
-				String sql=" insert into Job_tbl(Company_Id,Job_Id,Job_Role,Job_Description,Salary,Experience,No_of_Openings,Minimum_Qualification,last_Date,Job_Location,Skills,Venue,I_Date,Rounds) values(7,NEXT VALUE FOR Job_Id,?,?,?,?,?,?,?,?,?,?,?,?)"; 
-				Object[] params = new Object[] {j71,j72,j73,j74,j75,j76,j77,j78,j80,j81,j82,j84 };
-				int types[] = new int[] {Types.VARCHAR, Types.VARCHAR, Types.INTEGER,
+				String sql=" insert into Job_tbl(Company_Id,Job_Id,Job_Role,Job_Description,Salary,Experience,No_of_Openings,Minimum_Qualification,last_Date,Job_Location,Skills,Venue,I_Date,Rounds) values(?,NEXT VALUE FOR Job_Id,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+				Object[] params = new Object[] {j.getCompany_Id(),j71,j72,j73,j74,j75,j76,j77,j78,j80,j81,j82,j84 };
+				int types[] = new int[] {Types.INTEGER, Types.VARCHAR, Types.VARCHAR, Types.DECIMAL,
 						 					Types.INTEGER, Types.INTEGER, Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
 						 						 Types.VARCHAR,Types.VARCHAR, Types.VARCHAR,Types.VARCHAR }; 
 				jdbcTemplate.update(sql, params, types);

@@ -1,3 +1,4 @@
+<?init class="com.pennanttech.Team2.Session.Verify_loginCredentials"?>
 <zk>
 <style>
 .n{
@@ -37,6 +38,12 @@ border: none;
     padding: 16px;
 
 }
+.z-a:visited {
+	    color: #87898c;
+	}
+	.z-a:visited:hover {
+	    color: black;
+	}
 .header {	 overflow: hidden;	background-color:#ffffff; }
 		.header a {
 		  float: left;
@@ -83,7 +90,9 @@ border: none;
 		</div>
 	</div>
 	<vbox style="float:right;">
-		<button iconSclass="z-icon-sign-out" style="color:#fff;background-color: #f91c45; margin-left: 470px; margin-top: 33px;" label="logout"/>
+			<div id="click"  use="com.pennanttech.Team2.Login.UserLogin_Ctrl">
+			<button iconSclass="z-icon-sign-out" style="    color: #fff;    background-color: #f91c45;    margin-left: 470px;    margin-top: 33px;" label="logout"  onClick="click.logout()"/>
+		</div>
 	</vbox>
 </hbox>
 <div use="com.pennanttech.Team2.User.Appliedctrl">

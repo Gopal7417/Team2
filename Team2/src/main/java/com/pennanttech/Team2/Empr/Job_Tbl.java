@@ -18,6 +18,27 @@ public class Job_Tbl {
 	private String Job_Location;
 	private String Address;
 	private String Skills ;
+	private String Venue;
+	private Date   I_Date;
+	private String Rounds;
+	public String getVenue() {
+		return Venue;
+	}
+	public void setVenue(String venue) {
+		Venue = venue;
+	}
+	public Date getI_Date() {
+		return I_Date;
+	}
+	public void setI_Date(Date i_Date) {
+		I_Date = i_Date;
+	}
+	public String getRounds() {
+		return Rounds;
+	}
+	public void setRounds(String rounds) {
+		Rounds = rounds;
+	}
 	public int getCompany_Id() {
 		return Company_Id;
 	}
